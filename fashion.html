@@ -1,34 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beranda</title>
-    <link rel="stylesheet" href="./css/topic.css" />
-    <!-- <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap" rel="stylesheet"> -->
+    <meta name="description" content="Artikel Fashion - Tren dan gaya fashion terkini">
+    <title>Fashion - Urban Vibes Daily</title>
+    <link rel="stylesheet" href="./css/global-styles.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;700&display=swap">
-    
+    <style>
+        /* Styling khusus untuk halaman fashion */
+        .fashion-section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title h2::after {
+            background: linear-gradient(45deg, #8b5cf6, #06b6d4);
+        }
+
+        .fashion-card::before {
+            background: linear-gradient(45deg, #8b5cf6, #06b6d4);
+        }
+
+        .fashion-category {
+            background: linear-gradient(45deg, #8b5cf6, #06b6d4);
+        }
+
+        .read-more {
+            background: linear-gradient(45deg, #8b5cf6, #06b6d4);
+        }
+
+        .read-more:hover {
+            box-shadow: 0 8px 20px rgba(139, 92, 246, 0.4);
+        }
+
+        .featured-fashion {
+            background: linear-gradient(135deg, #8b5cf6, #06b6d4);
+        }
+
+        .featured-btn {
+            color: #8b5cf6;
+        }
+
+        /* ...existing common styles... */
+    </style>
 </head>
 
 <body>
     <header>
         <nav>
           <div class="logo">
-            <img src="./asset/logo1.png" width="170%" alt="" />
+            <img src="./asset/logo1.png" width="170%" alt="Urban Vibes Daily Logo" />
           </div>
-          <ul class="nav-link">
+          <div class="nav-toggle" id="navToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <ul class="nav-link" id="navMenu">
             <li>
               <a href="./home.html">Beranda</a>
             </li>
             <li class="dropdown">
-                <a href="./home.html">Topik</a>
+                <a href="#" class="active">Topik</a>
                 <div class="dropdown-content">
-                    <a href="./gayahidupsehat.html">Gaya Hidup Sehat</a>
-                    <a href="./kecantikan.html">Kecantikan</a>
-                    <a href="./fashion.html">Fashion</a>
-                    <a href="./travel.html">Travel</a>
-                    <a href="./kuliner.html">Kuliner</a>
-                    <a href="./budaya.html">Budaya</a>
+                  <a href="./gayahidupsehat.html">Gaya Hidup Sehat</a>
+                  <a href="./kecantikan.html">Kecantikan</a>
+                  <a href="./fashion.html" class="active">Fashion</a>
+                  <a href="./travel.html">Travel</a>
+                  <a href="./kuliner.html">Kuliner</a>
+                  <a href="./budaya.html">Budaya</a>
                 </div>
             </li>
             <li>
@@ -38,89 +80,48 @@
         </nav>
     </header>
 
-    <div class="separator">
-        <div class="topic-title">Fashion</div>
-    </div>
-    
-    <div class="line"></div>
-    
-    <button class="back-button" onclick="goBack()">Kembali
-        <a href="./home.html"></a>
-    </button>
-
     <main>
-        <section class="news">
-            <div class="article">
-                <img src="./asset/topic/hijab.jpg">
-                <div>
-                    <h2>Keindahan Laut Jadi Inpirasi Koleksi Busana Resor ala Vanilla Hijab</h2>
-                    <h4>Dinno Baskoro</h4>
-                    <div>
-                        <p>
-                            KOMPAS.com - Brand lokal modest fashion, Vanilla Hijab merilis koleksi busana terbarunya yang 
-                            bertajuk "Magical Day". Koleksi busana modest yang disuguhkan itu terinspirasi dari kekayaan dan 
-                            keindahan laut serta pantai yang dimiliki Indonesia. Sentuhan keindahan bawah lautnya hadir dalam 
-                            motif terumbu karang yang dikombinasikan motif floral untuk menjadi kesatuan desain yang cantik. 
-                            "Negara Indonesia ini kan kepulauan, banyak pulau-pulau indah, peta-petanya, kita angkatlah itu 
-                            dalam koleksi ini," Demikian kata Mega Novelia, public relation Vanilla Hijab saat ditemui Kompas.com dalam 
-                            konferensi persnya di Walking Drum Ancol, Jakarta, baru-baru ini. Ada sekitar 12 look yang ditampilkan pada
-                             trunk show-nya yang juga digelar di pantai, Jakarta. Sebagian besar koleksi busana modestnya dituangkan.......
-                        </p>
-                        <a href='https://lifestyle.kompas.com/read/2023/11/08/054910220/keindahan-laut-jadi-inpirasi-koleksi-busana-resor-ala-vanilla-hijab'> Baca Selengkapnya</a>
-                    </div>
-                </div>
-            </div>
+        <section class="page-header">
+            <h1>Fashion</h1>
+            <p>Tren fashion terkini dan tips berpakaian stylish</p>
+        </section>
 
-            <div class="article">
-                <img src="./asset/RevoU.png">
-                <div>
-                    <h2>News Tittle</h2>
-                    <h4>Author</h4>
-                    <div>
-                        <a href="#"> Baca Selengkapnya</a>
-                    </div>
-                </div>
+        <section class="content">
+            <div class="article-grid">
+                <article class="article-card">
+                    <img src="./asset/image/fashion.jpeg" alt="Fashion Trends" />
+                    <h3>Tren Fashion 2024 yang Wajib Kamu Tahu</h3>
+                    <p>Simak tren fashion terbaru yang akan populer di tahun 2024...</p>
+                    <a href="#" class="read-more">Baca Selengkapnya</a>
+                </article>
             </div>
-
-            <div class="article">
-                <img src="./asset/RevoU.png">
-                <div>
-                    <h2>News Tittle</h2>
-                    <h4>Author</h4>
-                    <div>
-                        <a href="#"> Baca Selengkapnya</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="article">
-                <img src="./asset/RevoU.png">
-                <div>
-                    <h2>News Tittle</h2>
-                    <h4>Author</h4>
-                    <div>
-                        <a href="#"> Baca Selengkapnya</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="article">
-                <img src="./asset/RevoU.png">
-                <div>
-                    <h2>News Tittle</h2>
-                    <h4>Author</h4>
-                    <div>
-                        <a href="#"> Baca Selengkapnya</a>
-                    </div>
-                </div>
-            </div>
-
         </section>
     </main>
+
     <script>
-        function goBack() {
-            window.history.back();
-        }
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        navToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
+
+        const navLinks = document.querySelectorAll('.nav-link a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('active');
+            });
+        });
+
+        document.addEventListener('click', function(event) {
+            const isClickInsideNav = navToggle.contains(event.target) || navMenu.contains(event.target);
+            if (!isClickInsideNav) {
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('active');
+            }
+        });
     </script>
 </body>
 </html>

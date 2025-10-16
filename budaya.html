@@ -1,34 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beranda</title>
+    <meta name="description" content="Artikel Budaya - Kekayaan budaya Indonesia dan dunia">
+    <title>Budaya - Urban Vibes Daily</title>
+    <link rel="stylesheet" href="./css/global-styles.css" />
     <link rel="stylesheet" href="./css/topic.css" />
-    <!-- <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap" rel="stylesheet"> -->
+    <link rel="stylesheet" href="./css/budaya.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;700&display=swap">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
+    <button class="theme-toggle" id="themeToggle" aria-label="Beralih ke mode gelap" data-tooltip="Mode Gelap">
+        🌙
+    </button>
+
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+    </div>
     <header>
         <nav>
           <div class="logo">
-            <img src="./asset/logo1.png" width="170%" alt="" />
+            <img src="./asset/logo1.png" width="170%" alt="Urban Vibes Daily Logo" />
           </div>
-          <ul class="nav-link">
+          <div class="nav-toggle" id="navToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <ul class="nav-link" id="navMenu">
             <li>
-              <a href="./home.html">Beranda</a>
+              <a href="./index.html">Beranda</a>
             </li>
             <li class="dropdown">
-                <a href="./home.html">Topik</a>
+                <a href="#" class="active">Topik</a>
                 <div class="dropdown-content">
-                    <a href="./gayahidupsehat.html">Gaya Hidup Sehat</a>
-                    <a href="./kecantikan.html">Kecantikan</a>
-                    <a href="./fashion.html">Fashion</a>
-                    <a href="./travel.html">Travel</a>
-                    <a href="./kuliner.html">Kuliner</a>
-                    <a href="./budaya.html">Budaya</a>
+                  <a href="./gayahidupsehat.html">Gaya Hidup Sehat</a>
+                  <a href="./kecantikan.html">Kecantikan</a>
+                  <a href="./fashion.html">Fashion</a>
+                  <a href="./travel.html">Travel</a>
+                  <a href="./kuliner.html">Kuliner</a>
+                  <a href="./budaya.html" class="active">Budaya</a>
                 </div>
             </li>
             <li>
@@ -38,89 +52,238 @@
         </nav>
     </header>
 
-    <div class="separator">
-        <div class="topic-title">Budaya</div>
-    </div>
-    
-    <div class="line"></div>
-    
-    <button class="back-button" onclick="goBack()">Kembali
-        <a href="./home.html"></a>
-    </button>
-
     <main>
-        <section class="news">
-            <div class="article">
-                <img src="./asset/topic/croissant.jpeg">
-                <div>
-                    <h2>Budaya Patriarki Bikin Peran Pengasuhan Anak Makin Sulit</h2>
-                    <h4>Inang Jalaludin Shofihara</h4>
-                    <div>
-                        <p>
-                            KOMPAS.com - Budaya patriarki yang mengharuskan ayah sebagai tulang punggung keluarga dan ibu
-                            sepenuhnya mengurus rumah tangga berlaku umum di keluarga Indonesia.  Kemampuan biologis untuk 
-                            hamil dan melahirkan membuat peran pengasuhan melekat pada perempuan, sedangkan peran mencari nafkah 
-                            menjadi tugas laki-laki sebagai ayah.  Pembagian peran ibu dan ayah yang didasari kondisi biologis sering 
-                            memunculkan permasalahan di dalam praktik pernikahan karena ibu turut bekerja.  Peneliti Southeast Asian 
-                            Ministers of Education Organization Center of Early Childhood Care Education and Parenting (SEAMEO CECCEP) 
-                            Assila Prianggi HB mengatakan, parameter keberhasilan seorang ayah diukur dari gaji.  Sementara itu, 
-                            keberhasilan seorang ibu dinilai dari perannya mengatur dan mengelola rumah termasuk pengasuhan anak........
-                        </p>
-                        <a href='https://www.kompas.com/edu/read/2023/11/07/143821171/budaya-patriarki-bikin-peran-pengasuhan-anak-makin-sulit'> Baca Selengkapnya</a>
+        <section class="page-header">
+            <h1>Budaya</h1>
+            <p>Mengenal kekayaan budaya Indonesia dan dunia</p>
+        </section>
+
+        <section class="featured-section">
+            <div class="featured-content">
+                <h3>Festival Budaya Indonesia 2023</h3>
+                <p>Jangan lewatkan festival budaya terbesar tahun ini yang akan menampilkan berbagai pertunjukan seni, pameran kerajinan, dan kuliner tradisional dari seluruh nusantara.</p>
+                <a href="#" class="featured-btn">Selengkapnya</a>
+            </div>
+        </section>
+
+        <section class="content">
+            <h2>Artikel Terbaru</h2>
+            <div class="article-grid">
+                <!-- Artikel 1 -->
+                <article class="article-card">
+                    <div class="card-img">
+                        <img src="./asset/image/budaya1.jpg" alt="Tari Tradisional" />
                     </div>
+                    <div class="card-content">
+                        <span class="category">Tradisi</span>
+                        <h3>Keindahan Tari Tradisional Indonesia</h3>
+                        <p>Mengenal lebih dekat dengan beragam tari tradisional dari berbagai daerah di Indonesia yang kaya akan makna dan filosofi.</p>
+                        <a href="#" class="read-more">Baca Selengkapnya</a>
+                    </div>
+                </article>
+
+                <!-- Artikel 2 -->
+                <article class="article-card">
+                    <div class="card-img">
+                        <img src="./asset/image/budaya2.jpg" alt="Batik Indonesia" />
+                    </div>
+                    <div class="card-content">
+                        <span class="category">Kerajinan</span>
+                        <h3>Warisan Batik Indonesia</h3>
+                        <p>Menelusuri sejarah batik Indonesia sebagai warisan budaya dunia yang diakui UNESCO dan perkembangannya di era modern.</p>
+                        <a href="#" class="read-more">Baca Selengkapnya</a>
+                    </div>
+                </article>
+
+                <!-- Artikel 3 -->
+                <article class="article-card">
+                    <div class="card-img">
+                        <img src="./asset/image/budaya3.jpg" alt="Upacara Adat" />
+                    </div>
+                    <div class="card-content">
+                        <span class="category">Upacara</span>
+                        <h3>Makna di Balik Upacara Adat</h3>
+                        <p>Mengupas makna filosofis dan spiritual di balik berbagai upacara adat yang masih dipertahankan di berbagai daerah.</p>
+                        <a href="#" class="read-more">Baca Selengkapnya</a>
+                    </div>
+                </article>
+
+                <!-- Artikel 4 -->
+                <article class="article-card">
+                    <div class="card-img">
+                        <img src="./asset/image/budaya4.jpg" alt="Alat Musik Tradisional" />
+                    </div>
+                    <div class="card-content">
+                        <span class="category">Musik</span>
+                        <h3>Alat Musik Tradisional Indonesia</h3>
+                        <p>Mengenal berbagai alat musik tradisional dari seluruh penjuru Indonesia dan keunikan suara yang dihasilkan.</p>
+                        <a href="#" class="read-more">Baca Selengkapnya</a>
+                    </div>
+                </article>
+
+                <!-- Artikel 5 -->
+                <article class="article-card">
+                    <div class="card-img">
+                        <img src="./asset/image/budaya5.jpg" alt="Arsitektur Tradisional" />
+                    </div>
+                    <div class="card-content">
+                        <span class="category">Arsitektur</span>
+                        <h3>Keindahan Arsitektur Tradisional</h3>
+                        <p>Menelusuri keunikan dan filosofi di balik arsitektur tradisional rumah adat di berbagai daerah Indonesia.</p>
+                        <a href="#" class="read-more">Baca Selengkapnya</a>
+                    </div>
+                </article>
+
+                <!-- Artikel 6 -->
+                <article class="article-card">
+                    <div class="card-img">
+                        <img src="./asset/image/budaya6.jpg" alt="Sastra Tradisional" />
+                    </div>
+                    <div class="card-content">
+                        <span class="category">Sastra</span>
+                        <h3>Kekayaan Sastra Lisan Indonesia</h3>
+                        <p>Menjelajahi kekayaan cerita rakyat, pantun, dan berbagai bentuk sastra lisan yang menjadi bagian dari warisan budaya.</p>
+                        <a href="#" class="read-more">Baca Selengkapnya</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Cultural Map Section -->
+        <section class="cultural-map">
+            <h2>Peta Budaya Indonesia</h2>
+            <div class="regions-grid">
+                <div class="region-card">
+                    <h3>Sumatera</h3>
+                    <ul>
+                        <li>Tari Saman (Aceh)</li>
+                        <li>Rumah Gadang (Sumatera Barat)</li>
+                        <li>Songket Palembang (Sumatera Selatan)</li>
+                    </ul>
+                </div>
+                <div class="region-card">
+                    <h3>Jawa</h3>
+                    <ul>
+                        <li>Wayang Kulit</li>
+                        <li>Batik</li>
+                        <li>Gamelan</li>
+                    </ul>
+                </div>
+                <div class="region-card">
+                    <h3>Kalimantan</h3>
+                    <ul>
+                        <li>Seni Ukir Dayak</li>
+                        <li>Tari Enggang</li>
+                        <li>Rumah Betang</li>
+                    </ul>
+                </div>
+                <div class="region-card">
+                    <h3>Sulawesi</h3>
+                    <ul>
+                        <li>Toraja</li>
+                        <li>Tari Kipas Pakarena</li>
+                        <li>Kain Tenun Sulawesi</li>
+                    </ul>
+                </div>
+                <div class="region-card">
+                    <h3>Bali & Nusa Tenggara</h3>
+                    <ul>
+                        <li>Tari Kecak</li>
+                        <li>Tenun Ikat</li>
+                        <li>Upacara Ngaben</li>
+                    </ul>
+                </div>
+                <div class="region-card">
+                    <h3>Papua</h3>
+                    <ul>
+                        <li>Ukiran Asmat</li>
+                        <li>Tari Perang</li>
+                        <li>Koteka</li>
+                    </ul>
                 </div>
             </div>
-
-            <div class="article">
-                <img src="./asset/RevoU.png">
-                <div>
-                    <h2>News Tittle</h2>
-                    <h4>Author</h4>
-                    <div>
-                        <a href="#"> Baca Selengkapnya</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="article">
-                <img src="./asset/RevoU.png">
-                <div>
-                    <h2>News Tittle</h2>
-                    <h4>Author</h4>
-                    <div>
-                        <a href="#"> Baca Selengkapnya</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="article">
-                <img src="./asset/RevoU.png">
-                <div>
-                    <h2>News Tittle</h2>
-                    <h4>Author</h4>
-                    <div>
-                        <a href="#"> Baca Selengkapnya</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="article">
-                <img src="./asset/RevoU.png">
-                <div>
-                    <h2>News Tittle</h2>
-                    <h4>Author</h4>
-                    <div>
-                        <a href="#"> Baca Selengkapnya</a>
-                    </div>
-                </div>
-            </div>
-
         </section>
     </main>
+
+    <script src="./js/global-scripts.js"></script>
     <script>
-        function goBack() {
-            window.history.back();
-        }
+        // Animasi tambahan untuk halaman budaya
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animasi untuk region cards
+            const regionCards = document.querySelectorAll('.region-card');
+            
+            function revealRegionCards() {
+                regionCards.forEach((card, index) => {
+                    const cardTop = card.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (cardTop < windowHeight - 100) {
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, index * 100);
+                    }
+                });
+            }
+            
+            // Inisialisasi gaya
+            regionCards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'all 0.5s ease';
+            });
+            
+            // Panggil fungsi saat scroll dan load
+            window.addEventListener('scroll', revealRegionCards);
+            window.addEventListener('load', revealRegionCards);
+            
+            // Theme Toggle
+            const themeToggle = document.getElementById('themeToggle');
+            const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+            const currentTheme = localStorage.getItem('theme');
+            
+            if (currentTheme == 'dark') {
+                document.body.classList.toggle('dark-theme');
+                themeToggle.textContent = '☀️';
+                themeToggle.setAttribute('data-tooltip', 'Mode Terang');
+            } else if (currentTheme == 'light') {
+                document.body.classList.toggle('light-theme');
+                themeToggle.textContent = '🌙';
+                themeToggle.setAttribute('data-tooltip', 'Mode Gelap');
+            }
+
+            themeToggle.addEventListener('click', () => {
+                let theme;
+                if (prefersDarkScheme.matches) {
+                    document.body.classList.toggle('light-theme');
+                    theme = document.body.classList.contains('light-theme') ? 'light' : 'dark';
+                } else {
+                    document.body.classList.toggle('dark-theme');
+                    theme = document.body.classList.contains('dark-theme') ? 'dark' : 'light';
+                }
+                
+                localStorage.setItem('theme', theme);
+                
+                if (theme === 'dark') {
+                    themeToggle.textContent = '☀️';
+                    themeToggle.setAttribute('data-tooltip', 'Mode Terang');
+                } else {
+                    themeToggle.textContent = '🌙';
+                    themeToggle.setAttribute('data-tooltip', 'Mode Gelap');
+                }
+            });
+
+            // Loading animation
+            const loadingOverlay = document.getElementById('loadingOverlay');
+                
+            setTimeout(() => {
+                loadingOverlay.style.opacity = '0';
+                setTimeout(() => {
+                    loadingOverlay.style.display = 'none';
+                    document.body.classList.add('loaded');
+                }, 500);
+            }, 800);
+        });
     </script>
 </body>
 </html>

@@ -1,34 +1,229 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beranda</title>
-    <link rel="stylesheet" href="./css/topic.css" />
-    <!-- <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap" rel="stylesheet"> -->
+    <meta name="description" content="Artikel Kecantikan - Tips dan trik kecantikan terkini">
+    <title>Kecantikan - Urban Vibes Daily</title>
+    <link rel="stylesheet" href="./css/global-styles.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;700&display=swap">
-    
+    <style>
+        /* Styling khusus untuk halaman kecantikan */
+        .beauty-section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, #ec4899, #f97316);
+            border-radius: 2px;
+        }
+
+        .beauty-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .beauty-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px var(--shadow);
+            transition: all 0.4s ease;
+            border: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        .beauty-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(45deg, #ec4899, #f97316);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .beauty-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px var(--hover-shadow);
+        }
+
+        .beauty-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .beauty-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .beauty-card:hover .beauty-image {
+            transform: scale(1.05);
+        }
+
+        .beauty-content {
+            padding: 1.8rem;
+        }
+
+        .beauty-category {
+            display: inline-block;
+            background: linear-gradient(45deg, #ec4899, #f97316);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .beauty-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 0.8rem;
+            line-height: 1.4;
+        }
+
+        .beauty-description {
+            font-size: 0.95rem;
+            color: var(--text-color);
+            opacity: 0.75;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .read-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(45deg, #ec4899, #f97316);
+            color: white;
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .read-more:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(236, 72, 153, 0.4);
+            filter: brightness(1.1);
+        }
+
+        /* Featured Section */
+        .featured-beauty {
+            background: linear-gradient(135deg, #ec4899, #f97316);
+            color: white;
+            padding: 4rem 2rem;
+            margin: 4rem 0;
+            text-align: center;
+            border-radius: 25px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .featured-content {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .featured-beauty h3 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .featured-beauty p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .featured-btn {
+            background: white;
+            color: #ec4899;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .featured-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ...existing responsive and animation code... */
+    </style>
 </head>
 
 <body>
+    <button class="theme-toggle" id="themeToggle" aria-label="Beralih ke mode gelap" data-tooltip="Mode Gelap">
+        🌙
+    </button>
+
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+    </div>
+
     <header>
         <nav>
           <div class="logo">
-            <img src="./asset/logo1.png" width="170%" alt="" />
+            <img src="./asset/logo1.png" width="170%" alt="Urban Vibes Daily Logo" />
           </div>
-          <ul class="nav-link">
+          <div class="nav-toggle" id="navToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <ul class="nav-link" id="navMenu">
             <li>
               <a href="./home.html">Beranda</a>
             </li>
             <li class="dropdown">
-                <a href="./home.html">Topik</a>
+                <a href="#" class="active">Topik</a>
                 <div class="dropdown-content">
-                    <a href="./gayahidupsehat.html">Gaya Hidup Sehat</a>
-                    <a href="./kecantikan.html">Kecantikan</a>
-                    <a href="./fashion.html">Fashion</a>
-                    <a href="./travel.html">Travel</a>
-                    <a href="./kuliner.html">Kuliner</a>
-                    <a href="./budaya.html">Budaya</a>
+                  <a href="./gayahidupsehat.html">Gaya Hidup Sehat</a>
+                  <a href="./kecantikan.html" class="active">Kecantikan</a>
+                  <a href="./fashion.html">Fashion</a>
+                  <a href="./travel.html">Travel</a>
+                  <a href="./kuliner.html">Kuliner</a>
+                  <a href="./budaya.html">Budaya</a>
                 </div>
             </li>
             <li>
@@ -38,86 +233,96 @@
         </nav>
     </header>
 
-    <div class="separator">
-        <div class="topic-title">Kecantikan</div>
-    </div>
-    
-    <div class="line"></div>
-    
-    <button class="back-button" onclick="goBack()">Kembali
-        <a href="./home.html"></a>
-    </button>
-
     <main>
-        <section class="news">
-            <div class="article">
-                <img src="./asset/topic/korea.jpeg">
-                <div>
-                    <h2>3 Treatment ala Korea yang Paling Banyak Diminta di Indonesia</h2>
-                    <h4>CNN Indonesia</h4>
-                    <div>
-                        <p>
-                            Jakarta, CNN Indonesia -- Sosok idol Korea Selatan kini seolah menjadi gambaran standar kecantikan yang
-                            diamini banyak orang. Tak sedikit perempuan maupun laki-laki yang ingin tampil bak idol Korea.
-                            Dokter spesialis kecantikan Arini Astasari Widodo menyebut, hingga saat ini banyak pasiennya yang datang dengan harapan bisa
-                            memiliki wajar seperti orang Korea yang ditonton lewat drama ataupun musik. Jika diingat-ingat, tren ini semakin 
-                            menjadi sejak pandemi Covid-19 pada 2020 lalu."Kayaknya karena banyak yang mengisi hari dengan nonton drama Korea........
+        <section class="page-header">
+            <h1>Kecantikan</h1>
+            <p>Tips dan trik kecantikan untuk tampil memukau</p>
+        </section>
+
+        <section class="beauty-section">
+            <div class="section-title">
+                <h2>Beauty Tips & Tutorials</h2>
+                <p>Temukan rahasia kecantikan dan tutorial makeup terkini</p>
+            </div>
+
+            <div class="beauty-grid">
+                <article class="beauty-card fade-in-up">
+                    <img src="./asset/image/makeup.jpeg" alt="Makeup Tutorial" class="beauty-image" />
+                    <div class="beauty-content">
+                        <span class="beauty-category">Makeup</span>
+                        <h3 class="beauty-title">Tutorial Makeup Natural Sehari-hari</h3>
+                        <p class="beauty-description">
+                            Pelajari cara membuat makeup natural yang cocok untuk aktivitas sehari-hari. 
+                            Simple, fresh, dan tahan lama sepanjang hari.
                         </p>
-                        <a href='https://www.cnnindonesia.com/gaya-hidup/20230925152748-277-1003461/3-treatment-ala-korea-yang-paling-banyak-diminta-di-indonesia'> Baca Selengkapnya</a>
+                        <a href="#" class="read-more">
+                            <span>Lihat Tutorial</span>
+                            <span>→</span>
+                        </a>
                     </div>
-                </div>
-            </div>
+                </article>
 
-            <div class="article">
-                <img src="./asset/RevoU.png">
-                <div>
-                    <h2>News Tittle</h2>
-                    <h4>Author</h4>
-                    <div>
-                        <a href="#"> Baca Selengkapnya</a>
+                <article class="beauty-card fade-in-up">
+                    <img src="./asset/image/beauty2.jpeg" alt="Skincare Routine" class="beauty-image" />
+                    <div class="beauty-content">
+                        <span class="beauty-category">Skincare</span>
+                        <h3 class="beauty-title">Skincare Routine untuk Kulit Glowing</h3>
+                        <p class="beauty-description">
+                            Rutinitas perawatan kulit yang tepat untuk mendapatkan kulit yang sehat 
+                            dan bercahaya. Mulai dari pembersihan hingga moisturizer.
+                        </p>
+                        <a href="#" class="read-more">
+                            <span>Baca Tips</span>
+                            <span>→</span>
+                        </a>
                     </div>
-                </div>
-            </div>
+                </article>
 
-            <div class="article">
-                <img src="./asset/RevoU.png">
-                <div>
-                    <h2>News Tittle</h2>
-                    <h4>Author</h4>
-                    <div>
-                        <a href="#"> Baca Selengkapnya</a>
-                    </div>
-                </div>
+                <!-- ...existing code for more beauty cards... -->
             </div>
+        </section>
 
-            <div class="article">
-                <img src="./asset/RevoU.png">
-                <div>
-                    <h2>News Tittle</h2>
-                    <h4>Author</h4>
-                    <div>
-                        <a href="#"> Baca Selengkapnya</a>
-                    </div>
-                </div>
+        <section class="featured-beauty">
+            <div class="featured-content">
+                <h3>💄 Beauty Workshop Online</h3>
+                <p>
+                    Ikuti workshop makeup online bersama beauty expert! 
+                    Pelajari teknik makeup professional dari rumah.
+                </p>
+                <a href="#" class="featured-btn">Daftar Workshop</a>
             </div>
-
-            <div class="article">
-                <img src="./asset/RevoU.png">
-                <div>
-                    <h2>News Tittle</h2>
-                    <h4>Author</h4>
-                    <div>
-                        <a href="#"> Baca Selengkapnya</a>
-                    </div>
-                </div>
-            </div>
-
         </section>
     </main>
+
+    <footer class="text-center mt-4 mb-4">
+        <p>&copy; 2024 Urban Vibes Daily. All rights reserved.</p>
+    </footer>
+
+    <script src="./js/global-scripts.js"></script>
     <script>
-        function goBack() {
-            window.history.back();
-        }
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        navToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
+
+        const navLinks = document.querySelectorAll('.nav-link a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('active');
+            });
+        });
+
+        document.addEventListener('click', function(event) {
+            const isClickInsideNav = navToggle.contains(event.target) || navMenu.contains(event.target);
+            if (!isClickInsideNav) {
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('active');
+            }
+        });
     </script>
 </body>
 </html>

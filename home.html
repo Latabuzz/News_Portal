@@ -1,24 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beranda</title>
+    <meta name="description" content="Urban Vibes Daily - Platform artikel gaya hidup, kecantikan, fashion, travel, kuliner, dan budaya">
+    <title>Beranda - Urban Vibes Daily</title>
     <link rel="stylesheet" href="./css/style.css" />
-    <!-- <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap" rel="stylesheet"> -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;700&display=swap">
-    
 </head>
 
 <body>
     <header>
         <nav>
           <div class="logo">
-            <img src="./asset/logo1.png" width="170%" alt="" />
+            <img src="./asset/logo1.png" width="170%" alt="Urban Vibes Daily Logo" />
           </div>
-          <ul class="nav-link">
+          <div class="nav-toggle" id="navToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <ul class="nav-link" id="navMenu">
             <li>
-              <a href="#home">Beranda</a>
+              <a href="#home" class="active">Beranda</a>
             </li>
             <li class="dropdown">
                 <a href="#pilihtopic">Topik</a>
@@ -39,7 +43,7 @@
     </header>
 
     <div class="search-container">
-        <input type="text" class="search-bar" placeholder="Search...">
+        <input type="text" class="search-bar" placeholder="Cari artikel..." aria-label="Search articles">
         <button class="search-button">Cari</button>
     </div>
 
@@ -91,66 +95,90 @@
         <div class="card-container">
           <div class="topic-card">
             <a href="./gayahidupsehat.html">
-              <img src="asset/image/healthylifestyle2.jpeg" width="100%">
+              <img src="asset/image/healthylifestyle2.jpeg" width="100%" alt="Gaya Hidup Sehat">
               <p>gaya hidup sehat</p>
             </a>
           </div>
           <div class="topic-card">
             <a href="./kecantikan.html">
-              <img src="asset/image/beauty2.jpeg" width="100%">
+              <img src="asset/image/beauty2.jpeg" width="100%" alt="Kecantikan">
               <p>kecantikan</p>
             </a>
           </div>
           <div class="topic-card">
             <a href="./fashion.html">
-              <img src="asset/image/fashion2.jpeg" width="100%">
+              <img src="asset/image/fashion2.jpeg" width="100%" alt="Fashion">
               <p>fashion</p>
             </a>
           </div>
           <div class="topic-card">
             <a href="./travel.html">
-              <img src="asset/image/travel.jpeg" width="100%">
+              <img src="asset/image/travel.jpeg" width="100%" alt="Travel">
               <p>travel</p>
             </a>
           </div>
           <div class="topic-card">
             <a href="./kuliner.html">
-              <img src="asset/image/food.jpeg" width="100%">
+              <img src="asset/image/food.jpeg" width="100%" alt="Kuliner">
               <p>kuliner</p>
             </a>
           </div>
           <div class="topic-card">
             <a href="./budaya.html">
-              <img src="asset/image/culture2.jpeg" width="100%">
+              <img src="asset/image/culture2.jpeg" width="100%" alt="Budaya">
               <p>budaya</p>
             </a>
           </div>
         </div>
       </div>
-  
     </section>
     
     <br>
 
-    <div id="#newsletter" class="container-form">
+    <div id="newsletter" class="container-form">
       <h3 style="text-align: center;">Ingin mendapatkan update-an terbaru dari kami?</h3>
       <p style="text-align: center;">Bergabunglah dengan newsletter kami 🌟</p>
       <p style="text-align: center;">⬇️ Untuk dapat bergabung dengan newsletter kami, silahkan isi form berikut ⬇️</p>
       <br>
-        <div class="form-card">
+        <form class="form-card">
           <div class="form-input">
             <label for="email">Masukan email Anda yang masih aktif</label>
             <br>
-            <input type="email" placeholder="email@contoh.com" id="email" />
+            <input type="email" placeholder="email@contoh.com" id="email" required />
           </div>
-          <button style="margin-inline: 220px; margin-top: 20px;">Submit</button>
-         
-        </div>
+          <button type="submit" style="margin-inline: 220px; margin-top: 20px;">Submit</button>
+        </form>
     </div>
     <br>  
     <footer></footer>
 
     <script>
+      // Mobile navigation toggle
+      const navToggle = document.getElementById('navToggle');
+      const navMenu = document.getElementById('navMenu');
+
+      navToggle.addEventListener('click', function() {
+          navMenu.classList.toggle('active');
+          navToggle.classList.toggle('active');
+      });
+
+      // Close mobile menu when clicking on a link
+      const navLinks = document.querySelectorAll('.nav-link a');
+      navLinks.forEach(link => {
+          link.addEventListener('click', () => {
+              navMenu.classList.remove('active');
+              navToggle.classList.remove('active');
+          });
+      });
+
+      // Close mobile menu when clicking outside
+      document.addEventListener('click', function(event) {
+          const isClickInsideNav = navToggle.contains(event.target) || navMenu.contains(event.target);
+          if (!isClickInsideNav) {
+              navMenu.classList.remove('active');
+              navToggle.classList.remove('active');
+          }
+      });
 
       let slideIndex = 0;
       showSlides();

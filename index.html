@@ -1,11 +1,443 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>News Portal</title>
+    <meta name="description" content="Urban Vibes Daily - Platform artikel gaya hidup, kecantikan, fashion, travel, kuliner, dan budaya">
+    <title>Urban Vibes Daily</title>
+    <link rel="stylesheet" href="./css/global-styles.css" />
+    <link rel="stylesheet" href="./css/home.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
-    <p>Group 29</p>
+    <button class="theme-toggle" id="themeToggle" aria-label="Beralih ke mode gelap" data-tooltip="Mode Gelap">
+        🌙
+    </button>
+
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <header>
+        <nav>
+          <div class="logo">
+            <img src="./asset/logo1.png" alt="Urban Vibes Daily Logo" />
+          </div>
+          <div class="nav-toggle" id="navToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <ul class="nav-link" id="navMenu">
+            <li>
+              <a href="./index.html" class="active">Beranda</a>
+            </li>
+            <li class="dropdown">
+                <a href="#topics">Topik</a>
+                <div class="dropdown-content">
+                  <a href="./gayahidupsehat.html">Gaya Hidup Sehat</a>
+                  <a href="./kecantikan.html">Kecantikan</a>
+                  <a href="./fashion.html">Fashion</a>
+                  <a href="./travel.html">Travel</a>
+                  <a href="./kuliner.html">Kuliner</a>
+                  <a href="./budaya.html">Budaya</a>
+                </div>
+            </li>
+            <li>
+              <a href="./about_us.html">Tentang Kami</a>
+            </li>
+          </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h2>Selamat Datang di</h2>
+                <h1>Urban Vibes Daily</h1>
+                <p>
+                    Temukan artikel menarik seputar gaya hidup, kecantikan, fashion, dan berbagai topik 
+                    menarik lainnya. Kami hadir untuk memberikan inspirasi dan informasi terpercaya 
+                    untuk kehidupan urban yang lebih bermakna.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#newsletter" class="cta-button">
+                        <span>Bergabung Sekarang</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#topics" class="cta-button cta-secondary">
+                        Jelajahi Topik
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-image-wrapper">
+                    <div class="slideshow-container">
+                        <img src="asset/image/people.jpeg" alt="Urban Community" class="slide active slide-fade">
+                        <div class="slide-overlay">
+                            <div class="slide-title">Komunitas Urban</div>
+                            <div class="slide-description">Bergabung dengan ribuan pembaca setia kami</div>
+                        </div>
+                        
+                        <img src="asset/image/healthylifestyle.jpeg" alt="Healthy Lifestyle" class="slide">
+                        <div class="slide-overlay">
+                            <div class="slide-title">Gaya Hidup Sehat</div>
+                            <div class="slide-description">Tips dan panduan hidup sehat modern</div>
+                        </div>
+                        
+                        <img src="asset/image/fashion.jpeg" alt="Fashion Trends" class="slide">
+                        <div class="slide-overlay">
+                            <div class="slide-title">Fashion Terkini</div>
+                            <div class="slide-description">Trend fashion dan style inspiration</div>
+                        </div>
+                        
+                        <img src="asset/image/makeup.jpeg" alt="Beauty Tips" class="slide">
+                        <div class="slide-overlay">
+                            <div class="slide-title">Tips Kecantikan</div>
+                            <div class="slide-description">Tutorial makeup dan skincare</div>
+                        </div>
+                        
+                        <img src="asset/image/food.jpeg" alt="Culinary" class="slide">
+                        <div class="slide-overlay">
+                            <div class="slide-title">Kuliner Nusantara</div>
+                            <div class="slide-description">Resep dan review kuliner terbaik</div>
+                        </div>
+                        
+                        <img src="asset/image/culture.jpeg" alt="Culture" class="slide">
+                        <div class="slide-overlay">
+                            <div class="slide-title">Budaya Indonesia</div>
+                            <div class="slide-description">Kekayaan warisan budaya nusantara</div>
+                        </div>
+
+                        <!-- Navigation Controls -->
+                        <button class="slideshow-controls prev-btn" onclick="changeSlide(-1)" aria-label="Previous slide">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="slideshow-controls next-btn" onclick="changeSlide(1)" aria-label="Next slide">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+
+                        <!-- Dot Navigation -->
+                        <div class="slideshow-nav">
+                            <span class="nav-dot active" onclick="currentSlide(1)" aria-label="Slide 1"></span>
+                            <span class="nav-dot" onclick="currentSlide(2)" aria-label="Slide 2"></span>
+                            <span class="nav-dot" onclick="currentSlide(3)" aria-label="Slide 3"></span>
+                            <span class="nav-dot" onclick="currentSlide(4)" aria-label="Slide 4"></span>
+                            <span class="nav-dot" onclick="currentSlide(5)" aria-label="Slide 5"></span>
+                            <span class="nav-dot" onclick="currentSlide(6)" aria-label="Slide 6"></span>
+                        </div>
+                    </div>
+                    <div class="image-decoration"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Search Section -->
+        <section class="search-section">
+            <h3 class="search-title">Cari Artikel</h3>
+            <div class="search-container">
+                <input type="text" class="search-bar" placeholder="Cari artikel, tips, atau topik yang kamu minati..." aria-label="Search articles">
+                <button class="search-button">
+                    <i class="fas fa-search"></i> Cari
+                </button>
+            </div>
+        </section>
+
+        <!-- Topics Section -->
+        <section id="topics" class="topics-section">
+            <div class="section-header">
+                <h2>Jelajahi Topik Favorit</h2>
+                <p>Pilih topik yang sesuai dengan minat dan kebutuhan gaya hidup Anda</p>
+            </div>
+
+            <div class="topics-grid">
+                <a href="./gayahidupsehat.html" class="topic-card">
+                    <div class="topic-image-wrapper">
+                        <img src="asset/image/healthylifestyle2.jpeg" alt="Gaya Hidup Sehat">
+                        <div class="topic-image-overlay"></div>
+                    </div>
+                    <div class="topic-content">
+                        <span class="topic-badge">Lifestyle</span>
+                        <h3>Gaya Hidup Sehat</h3>
+                        <p>Tips dan panduan untuk hidup lebih sehat, olahraga, dan pola makan yang baik.</p>
+                        <a href="./gayahidupsehat.html" class="topic-link">Baca Selengkapnya →</a>
+                    </div>
+                </a>
+
+                <a href="./kecantikan.html" class="topic-card">
+                    <div class="topic-image-wrapper">
+                        <img src="asset/image/beauty2.jpeg" alt="Kecantikan">
+                        <div class="topic-image-overlay"></div>
+                    </div>
+                    <div class="topic-content">
+                        <span class="topic-badge">Beauty</span>
+                        <h3>Kecantikan</h3>
+                        <p>Tutorial makeup, skincare, dan tips kecantikan dari para ahli kami.</p>
+                        <a href="./kecantikan.html" class="topic-link">Baca Selengkapnya →</a>
+                    </div>
+                </a>
+
+                <a href="./fashion.html" class="topic-card">
+                    <div class="topic-image-wrapper">
+                        <img src="asset/image/fashion2.jpeg" alt="Fashion">
+                        <div class="topic-image-overlay"></div>
+                    </div>
+                    <div class="topic-content">
+                        <span class="topic-badge">Fashion</span>
+                        <h3>Fashion</h3>
+                        <p>Trend terbaru, style tips, dan inspirasi fashion dari seluruh dunia.</p>
+                        <a href="./fashion.html" class="topic-link">Baca Selengkapnya →</a>
+                    </div>
+                </a>
+
+                <a href="./travel.html" class="topic-card">
+                    <div class="topic-image-wrapper">
+                        <img src="asset/image/travel2.jpeg" alt="Travel">
+                        <div class="topic-image-overlay"></div>
+                    </div>
+                    <div class="topic-content">
+                        <span class="topic-badge">Travel</span>
+                        <h3>Travel</h3>
+                        <p>Destinasi wisata menarik, tips perjalanan, dan review liburan terbaik.</p>
+                        <a href="./travel.html" class="topic-link">Baca Selengkapnya →</a>
+                    </div>
+                </a>
+
+                <a href="./kuliner.html" class="topic-card">
+                    <div class="topic-image-wrapper">
+                        <img src="asset/image/food2.jpeg" alt="Kuliner">
+                        <div class="topic-image-overlay"></div>
+                    </div>
+                    <div class="topic-content">
+                        <span class="topic-badge">Culinary</span>
+                        <h3>Kuliner</h3>
+                        <p>Resep masakan, review restoran, dan tips kuliner dari berbagai negara.</p>
+                        <a href="./kuliner.html" class="topic-link">Baca Selengkapnya →</a>
+                    </div>
+                </a>
+
+                <a href="./budaya.html" class="topic-card">
+                    <div class="topic-image-wrapper">
+                        <img src="asset/image/culture.jpeg" alt="Budaya">
+                        <div class="topic-image-overlay"></div>
+                    </div>
+                    <div class="topic-content">
+                        <span class="topic-badge">Culture</span>
+                        <h3>Budaya</h3>
+                        <p>Kekayaan warisan budaya, seni tradisional, dan budaya modern nusantara.</p>
+                        <a href="./budaya.html" class="topic-link">Baca Selengkapnya →</a>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section id="newsletter" class="newsletter-section">
+            <div class="newsletter-content">
+                <h3>Jangan Lewatkan Update Terbaru!</h3>
+                <p>Bergabunglah dengan ribuan pembaca setia kami dan dapatkan artikel eksklusif langsung di inbox Anda</p>
+                <form class="newsletter-form" onsubmit="handleNewsletterSubmit(event)">
+                    <input type="email" placeholder="Masukkan email Anda" name="email" id="newsletter-email" required>
+                    <button type="submit">
+                        <i class="fas fa-paper-plane"></i> Berlangganan
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h2>UrbanVibes<span>Daily</span></h2>
+                <p>Tetap terhubung dengan tren terbaru di kota Anda.</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-section">
+                    <h3>Kategori</h3>
+                    <ul>
+                        <li><a href="./gayahidupsehat.html">Gaya Hidup Sehat</a></li>
+                        <li><a href="./kecantikan.html">Kecantikan</a></li>
+                        <li><a href="./fashion.html">Fashion</a></li>
+                        <li><a href="./travel.html">Travel</a></li>
+                        <li><a href="./kuliner.html">Kuliner</a></li>
+                        <li><a href="./budaya.html">Budaya</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Info</h3>
+                    <ul>
+                        <li><a href="./about_us.html">Tentang Kami</a></li>
+                        <li><a href="#">Kontak</a></li>
+                        <li><a href="#">Kebijakan Privasi</a></li>
+                        <li><a href="#">Syarat & Ketentuan</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-subscribe">
+                <h3>Ikuti Kami</h3>
+                <div class="social-icons">
+                    <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Urban Vibes Daily. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="./js/global-scripts.js"></script>
+    <script>
+        // Slideshow functionality
+        let slideIndex = 1;
+        let slideInterval;
+
+        // Initialize slideshow
+        document.addEventListener('DOMContentLoaded', function() {
+            showSlide(slideIndex);
+            startAutoSlide();
+        });
+
+        function changeSlide(direction) {
+            slideIndex += direction;
+            const slides = document.querySelectorAll('.slide');
+            
+            if (slideIndex > slides.length) {
+                slideIndex = 1;
+            }
+            if (slideIndex < 1) {
+                slideIndex = slides.length;
+            }
+            
+            showSlide(slideIndex);
+            resetAutoSlide();
+        }
+
+        function currentSlide(n) {
+            slideIndex = n;
+            showSlide(slideIndex);
+            resetAutoSlide();
+        }
+
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.slide');
+            const dots = document.querySelectorAll('.nav-dot');
+            const overlays = document.querySelectorAll('.slide-overlay');
+            
+            // Hide all slides and overlays
+            slides.forEach(slide => {
+                slide.classList.remove('active', 'slide-fade');
+            });
+            
+            overlays.forEach(overlay => {
+                overlay.style.display = 'none';
+            });
+            
+            dots.forEach(dot => {
+                dot.classList.remove('active');
+            });
+            
+            // Show current slide
+            if (slides[n - 1]) {
+                slides[n - 1].classList.add('active', 'slide-fade');
+                overlays[n - 1].style.display = 'block';
+                dots[n - 1].classList.add('active');
+            }
+        }
+
+        function startAutoSlide() {
+            slideInterval = setInterval(() => {
+                slideIndex++;
+                const slides = document.querySelectorAll('.slide');
+                if (slideIndex > slides.length) {
+                    slideIndex = 1;
+                }
+                showSlide(slideIndex);
+            }, 4000); // Change slide every 4 seconds
+        }
+
+        function resetAutoSlide() {
+            clearInterval(slideInterval);
+            startAutoSlide();
+        }
+
+        // Pause slideshow on hover
+        const slideshowContainer = document.querySelector('.slideshow-container');
+        if (slideshowContainer) {
+            slideshowContainer.addEventListener('mouseenter', () => {
+                clearInterval(slideInterval);
+            });
+            
+            slideshowContainer.addEventListener('mouseleave', () => {
+                startAutoSlide();
+            });
+        }
+
+        // Touch/swipe support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        slideshowContainer?.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        slideshowContainer?.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    // Swipe left - next slide
+                    changeSlide(1);
+                } else {
+                    // Swipe right - previous slide
+                    changeSlide(-1);
+                }
+            }
+        }
+
+        // Newsletter form handler
+        function handleNewsletterSubmit(event) {
+            event.preventDefault();
+            const email = document.getElementById('newsletter-email').value;
+            
+            // Simulate form submission
+            const button = event.target.querySelector('button');
+            const originalText = button.innerHTML;
+            button.innerHTML = '<i class="fas fa-check"></i> Terima Kasih!';
+            button.disabled = true;
+            
+            setTimeout(() => {
+                button.innerHTML = originalText;
+                button.disabled = false;
+                event.target.reset();
+            }, 3000);
+        }
+
+        // Add smooth scroll behavior
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>

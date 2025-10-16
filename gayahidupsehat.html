@@ -1,34 +1,276 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beranda</title>
-    <link rel="stylesheet" href="./css/topic.css" />
-    <!-- <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap" rel="stylesheet"> -->
+    <meta name="description" content="Artikel Gaya Hidup Sehat - Tips dan panduan hidup sehat">
+    <title>Gaya Hidup Sehat - Urban Vibes Daily</title>
+    <link rel="stylesheet" href="./css/global-styles.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;700&display=swap">
-    
+    <style>
+        /* Styling khusus untuk halaman gaya hidup sehat */
+        .health-section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, #10b981, #34d399);
+            border-radius: 2px;
+        }
+
+        .health-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .health-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px var(--shadow);
+            transition: all 0.4s ease;
+            border: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        .health-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(45deg, #10b981, #34d399);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .health-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px var(--hover-shadow);
+        }
+
+        .health-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .health-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .health-card:hover .health-image {
+            transform: scale(1.05);
+        }
+
+        .health-content {
+            padding: 1.8rem;
+        }
+
+        .health-category {
+            display: inline-block;
+            background: linear-gradient(45deg, #10b981, #34d399);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .health-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 0.8rem;
+            line-height: 1.4;
+        }
+
+        .health-description {
+            font-size: 0.95rem;
+            color: var(--text-color);
+            opacity: 0.75;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .read-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(45deg, #10b981, #34d399);
+            color: white;
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .read-more:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.4);
+            filter: brightness(1.1);
+        }
+
+        /* Featured Section */
+        .featured-health {
+            background: linear-gradient(135deg, #10b981, #34d399);
+            color: white;
+            padding: 4rem 2rem;
+            margin: 4rem 0;
+            text-align: center;
+            border-radius: 25px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .featured-content {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .featured-health h3 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .featured-health p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .featured-btn {
+            background: white;
+            color: #10b981;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .featured-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ...existing responsive and animation code... */
+        @media (max-width: 768px) {
+            .health-section {
+                padding: 2rem 1rem;
+            }
+
+            .health-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .health-image {
+                height: 200px;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .featured-health {
+                padding: 3rem 1.5rem;
+                margin: 3rem 1rem;
+            }
+
+            .featured-health h3 {
+                font-size: 1.8rem;
+            }
+        }
+
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .health-card:nth-child(1) { animation-delay: 0.1s; }
+        .health-card:nth-child(2) { animation-delay: 0.2s; }
+        .health-card:nth-child(3) { animation-delay: 0.3s; }
+        .health-card:nth-child(4) { animation-delay: 0.4s; }
+        .health-card:nth-child(5) { animation-delay: 0.5s; }
+        .health-card:nth-child(6) { animation-delay: 0.6s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
 </head>
 
 <body>
+    <button class="theme-toggle" id="themeToggle" aria-label="Beralih ke mode gelap" data-tooltip="Mode Gelap">
+        🌙
+    </button>
+
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+    </div>
+
     <header>
         <nav>
           <div class="logo">
-            <img src="./asset/logo1.png" width="170%" alt="" />
+            <img src="./asset/logo1.png" alt="Urban Vibes Daily Logo" />
           </div>
-          <ul class="nav-link">
+          <div class="nav-toggle" id="navToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <ul class="nav-link" id="navMenu">
             <li>
-              <a href="./home.html">Beranda</a>
+              <a href="./index.html">Beranda</a>
             </li>
             <li class="dropdown">
-                <a href="./home.html">Topik</a>
+                <a href="#" class="active">Topik</a>
                 <div class="dropdown-content">
-                    <a href="./gayahidupsehat.html">Gaya Hidup Sehat</a>
-                    <a href="./kecantikan.html">Kecantikan</a>
-                    <a href="./fashion.html">Fashion</a>
-                    <a href="./travel.html">Travel</a>
-                    <a href="./kuliner.html">Kuliner</a>
-                    <a href="./budaya.html">Budaya</a>
+                  <a href="./gayahidupsehat.html" class="active">Gaya Hidup Sehat</a>
+                  <a href="./kecantikan.html">Kecantikan</a>
+                  <a href="./fashion.html">Fashion</a>
+                  <a href="./travel.html">Travel</a>
+                  <a href="./kuliner.html">Kuliner</a>
+                  <a href="./budaya.html">Budaya</a>
                 </div>
             </li>
             <li>
@@ -38,86 +280,133 @@
         </nav>
     </header>
 
-    <div class="separator">
-        <div class="topic-title">Gaya Hidup Sehat</div>
-    </div>
-    
-    <div class="line"></div>
-    
-    <button class="back-button" onclick="goBack()">Kembali
-        <a href="./home.html"></a>
-    </button>
-
     <main>
-        <section class="news">
-            <div class="article">
-                <img src="./asset/topic/depresi.jpeg">
-                <div>
-                    <h2>7 Gaya Hidup Sehat untuk Mencegah Depresi</h2>
-                    <h4>Elizabeth Ayudya Ratna Rininta</h4>
-                    <div>
-                        <p>
-                            KOMPAS.com - Depresi adalah gangguan mental yang biasanya ditandai dengan perasaan sedih yang mendalam, 
-                            kehilangan asa peduli, dan minat dalam menjalani aktivitas sehari-hari. Penyebab depresi bisa karena masalah 
-                            pribadi atau perselisihan dengan keluarga atau rekan, peristiwa besar, penyakit serius, dan efek penggunaan 
-                            obat-obatan tertentu. Risiko depresi juga dapat meningkat pada seseorang yang memiliki riwayat genetik atau 
-                            keluarga dengan kondisi serupa.......
+        <section class="page-header">
+            <h1>Gaya Hidup Sehat</h1>
+            <p>Tips dan panduan untuk hidup lebih sehat dan bahagia</p>
+        </section>
+
+        <section class="health-section">
+            <div class="section-title">
+                <h2>Tips Hidup Sehat</h2>
+                <p>Panduan lengkap untuk memulai gaya hidup yang lebih sehat</p>
+            </div>
+
+            <div class="health-grid">
+                <article class="health-card fade-in-up">
+                    <img src="./asset/image/healthylifestyle.jpeg" alt="Olahraga Rutin" class="health-image" />
+                    <div class="health-content">
+                        <span class="health-category">Olahraga</span>
+                        <h3 class="health-title">5 Olahraga Terbaik untuk Pemula</h3>
+                        <p class="health-description">
+                            Panduan memilih jenis olahraga yang tepat untuk pemula. Mulai dari jogging, 
+                            yoga, hingga latihan kekuatan yang mudah dilakukan di rumah.
                         </p>
-                        <a href='https://health.kompas.com/read/23J23130000968/7-gaya-hidup-sehat-untuk-mencegah-depresi'> Baca Selengkapnya</a>
+                        <a href="#" class="read-more">
+                            <span>Baca Selengkapnya</span>
+                            <span>→</span>
+                        </a>
                     </div>
-                </div>
-            </div>
+                </article>
 
-            <div class="article">
-                <img src="./asset/RevoU.png">
-                <div>
-                    <h2>News Tittle</h2>
-                    <h4>Author</h4>
-                    <div>
-                        <a href="#"> Baca Selengkapnya</a>
+                <article class="health-card fade-in-up">
+                    <img src="./asset/image/healthylifestyle2.jpeg" alt="Pola Makan Sehat" class="health-image" />
+                    <div class="health-content">
+                        <span class="health-category">Nutrisi</span>
+                        <h3 class="health-title">Panduan Pola Makan Sehat Seimbang</h3>
+                        <p class="health-description">
+                            Tips mengatur pola makan yang sehat dan seimbang. Termasuk menu harian 
+                            yang kaya nutrisi untuk menjaga kesehatan tubuh optimal.
+                        </p>
+                        <a href="#" class="read-more">
+                            <span>Baca Selengkapnya</span>
+                            <span>→</span>
+                        </a>
                     </div>
-                </div>
-            </div>
+                </article>
 
-            <div class="article">
-                <img src="./asset/RevoU.png">
-                <div>
-                    <h2>News Tittle</h2>
-                    <h4>Author</h4>
-                    <div>
-                        <a href="#"> Baca Selengkapnya</a>
+                <article class="health-card fade-in-up">
+                    <img src="./asset/image/healthylifestyle.jpeg" alt="Mental Health" class="health-image" />
+                    <div class="health-content">
+                        <span class="health-category">Mental</span>
+                        <h3 class="health-title">Cara Menjaga Kesehatan Mental</h3>
+                        <p class="health-description">
+                            Strategi efektif untuk menjaga kesehatan mental di era modern. 
+                            Termasuk teknik mindfulness dan manajemen stres yang praktis.
+                        </p>
+                        <a href="#" class="read-more">
+                            <span>Baca Selengkapnya</span>
+                            <span>→</span>
+                        </a>
                     </div>
-                </div>
-            </div>
+                </article>
 
-            <div class="article">
-                <img src="./asset/RevoU.png">
-                <div>
-                    <h2>News Tittle</h2>
-                    <h4>Author</h4>
-                    <div>
-                        <a href="#"> Baca Selengkapnya</a>
+                <article class="health-card fade-in-up">
+                    <img src="./asset/image/healthylifestyle2.jpeg" alt="Sleep Quality" class="health-image" />
+                    <div class="health-content">
+                        <span class="health-category">Tidur</span>
+                        <h3 class="health-title">Tips Tidur Berkualitas</h3>
+                        <p class="health-description">
+                            Panduan untuk mendapatkan tidur yang berkualitas. Rutinitas sebelum tidur 
+                            dan lingkungan yang mendukung istirahat optimal.
+                        </p>
+                        <a href="#" class="read-more">
+                            <span>Baca Selengkapnya</span>
+                            <span>→</span>
+                        </a>
                     </div>
-                </div>
-            </div>
+                </article>
 
-            <div class="article">
-                <img src="./asset/RevoU.png">
-                <div>
-                    <h2>News Tittle</h2>
-                    <h4>Author</h4>
-                    <div>
-                        <a href="#"> Baca Selengkapnya</a>
+                <article class="health-card fade-in-up">
+                    <img src="./asset/image/healthylifestyle.jpeg" alt="Hydration" class="health-image" />
+                    <div class="health-content">
+                        <span class="health-category">Hidrasi</span>
+                        <h3 class="health-title">Pentingnya Hidrasi untuk Tubuh</h3>
+                        <p class="health-description">
+                            Manfaat minum air putih yang cukup dan cara menjaga hidrasi tubuh. 
+                            Plus tips untuk membuat air putih lebih menarik dikonsumsi.
+                        </p>
+                        <a href="#" class="read-more">
+                            <span>Baca Selengkapnya</span>
+                            <span>→</span>
+                        </a>
                     </div>
-                </div>
-            </div>
+                </article>
 
+                <article class="health-card fade-in-up">
+                    <img src="./asset/image/healthylifestyle2.jpeg" alt="Detox" class="health-image" />
+                    <div class="health-content">
+                        <span class="health-category">Detox</span>
+                        <h3 class="health-title">Program Detox Alami</h3>
+                        <p class="health-description">
+                            Program detox sederhana menggunakan bahan-bahan alami. 
+                            Membersihkan tubuh dari toksin untuk kesehatan yang optimal.
+                        </p>
+                        <a href="#" class="read-more">
+                            <span>Baca Selengkapnya</span>
+                            <span>→</span>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="featured-health">
+            <div class="featured-content">
+                <h3>🌱 Challenge Hidup Sehat 30 Hari</h3>
+                <p>
+                    Bergabunglah dengan challenge hidup sehat selama 30 hari! 
+                    Dapatkan panduan harian dan motivasi untuk memulai gaya hidup yang lebih baik.
+                </p>
+                <a href="#" class="featured-btn">Ikuti Challenge</a>
+            </div>
         </section>
     </main>
-    <script>
-        function goBack() {
-            window.history.back();
-        }
-    </script>
+
+    <footer class="text-center mt-4 mb-4">
+        <p>&copy; 2024 Urban Vibes Daily. All rights reserved.</p>
+    </footer>
+
+    <script src="./js/global-scripts.js"></script>
 </body>
 </html>

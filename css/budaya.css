@@ -1,0 +1,158 @@
+/* CSS untuk tampilan halaman topik khusus budaya */
+.featured-section {
+    background: linear-gradient(135deg, #f59e0b, #dc2626);
+    color: white;
+    padding: 4rem 2rem;
+    margin: 4rem 0 2rem;
+    text-align: center;
+    border-radius: 25px;
+    position: relative;
+    overflow: hidden;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.featured-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
+    opacity: 0.3;
+}
+
+.featured-content {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    padding: 0 1rem;
+}
+
+.featured-section h3 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.featured-section p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.featured-btn {
+    background: white;
+    color: #f59e0b;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.featured-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Cultural Map */
+.cultural-map {
+    margin: 4rem 0;
+    padding: 2rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cultural-map h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    color: var(--text-color);
+}
+
+.cultural-map h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(45deg, #f59e0b, #dc2626);
+    border-radius: 2px;
+}
+
+.regions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.region-card {
+    background: var(--card-bg);
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 5px 20px var(--shadow);
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+.region-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(245, 158, 11, 0.2);
+}
+
+.region-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: #f59e0b;
+    border-bottom: 2px solid #dc2626;
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+
+.region-card ul {
+    padding-left: 1.2rem;
+    margin: 0;
+}
+
+.region-card li {
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .featured-section {
+        padding: 3rem 1rem;
+        margin: 2rem 1rem;
+        border-radius: 15px;
+    }
+
+    .featured-section h3 {
+        font-size: 1.8rem;
+    }
+
+    .featured-btn {
+        padding: 0.8rem 1.5rem;
+    }
+
+    .regions-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .cultural-map {
+        padding: 1rem;
+    }
+}

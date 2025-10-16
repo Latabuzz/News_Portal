@@ -1,34 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beranda</title>
-    <link rel="stylesheet" href="./css/topic.css" />
-    <!-- <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap" rel="stylesheet"> -->
+    <meta name="description" content="Artikel Travel - Destinasi wisata dan tips perjalanan">
+    <title>Travel - Urban Vibes Daily</title>
+    <link rel="stylesheet" href="./css/global-styles.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;700&display=swap">
-    
+    <style>
+        /* Styling khusus untuk halaman travel */
+        .travel-section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title h2::after {
+            background: linear-gradient(45deg, #3b82f6, #06b6d4);
+        }
+
+        .travel-card::before {
+            background: linear-gradient(45deg, #3b82f6, #06b6d4);
+        }
+
+        .travel-category {
+            background: linear-gradient(45deg, #3b82f6, #06b6d4);
+        }
+
+        .read-more {
+            background: linear-gradient(45deg, #3b82f6, #06b6d4);
+        }
+
+        .read-more:hover {
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+        }
+
+        .featured-travel {
+            background: linear-gradient(135deg, #3b82f6, #06b6d4);
+        }
+
+        .featured-btn {
+            color: #3b82f6;
+        }
+
+        /* ...existing common styles... */
+    </style>
 </head>
 
 <body>
     <header>
         <nav>
           <div class="logo">
-            <img src="./asset/logo1.png" width="170%" alt="" />
+            <img src="./asset/logo1.png" width="170%" alt="Urban Vibes Daily Logo" />
           </div>
-          <ul class="nav-link">
+          <div class="nav-toggle" id="navToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <ul class="nav-link" id="navMenu">
             <li>
               <a href="./home.html">Beranda</a>
             </li>
             <li class="dropdown">
-                <a href="./home.html">Topik</a>
+                <a href="#" class="active">Topik</a>
                 <div class="dropdown-content">
-                    <a href="./gayahidupsehat.html">Gaya Hidup Sehat</a>
-                    <a href="./kecantikan.html">Kecantikan</a>
-                    <a href="./fashion.html">Fashion</a>
-                    <a href="./travel.html">Travel</a>
-                    <a href="./kuliner.html">Kuliner</a>
-                    <a href="./budaya.html">Budaya</a>
+                  <a href="./gayahidupsehat.html">Gaya Hidup Sehat</a>
+                  <a href="./kecantikan.html">Kecantikan</a>
+                  <a href="./fashion.html">Fashion</a>
+                  <a href="./travel.html" class="active">Travel</a>
+                  <a href="./kuliner.html">Kuliner</a>
+                  <a href="./budaya.html">Budaya</a>
                 </div>
             </li>
             <li>
@@ -38,87 +80,48 @@
         </nav>
     </header>
 
-    <div class="separator">
-        <div class="topic-title">Travel</div>
-    </div>
-    
-    <div class="line"></div>
-    
-    <button class="back-button" onclick="goBack()">Kembali
-        <a href="./home.html"></a>
-    </button>
-
     <main>
-        <section class="news">
-            <div class="article">
-                <img src="./asset/topic/kereta.jpg">
-                <div>
-                    <h2>Ada Kereta Gantung Bertema Pokemon di Singapura, Cek Tarifnya</h2>
-                    <h4>Ni Nyoman Wira Widyanti</h4>
-                    <div>
-                        <p>
-                            KOMPAS.com - Penggemar manga/anime Pokemon bisa coba naik kereta gantung
-                            (cable car) di Sentosa, Singapura, yang tersedia hingga tahun depan, tepatnya
-                             Selasa (30/4/2024). "Bersiaplah memasuki dunia Pokemon di dalam kereta Singapore 
-                             Cable Car pada musim liburan ini, sembari menikmati pemandangan indah pencakar langit
-                              Singapura," bunyi keterangan yang dikutip dari laman resmi Sentosa, Rabu (15/11/2023).
+        <section class="page-header">
+            <h1>Travel</h1>
+            <p>Destinasi wisata menarik dan tips perjalanan</p>
+        </section>
 
-                        </p>
-                        <a href='https://travel.kompas.com/read/2023/11/15/082524027/ada-kereta-gantung-bertema-pokemon-di-singapura-cek-tarifnya'> Baca Selengkapnya</a>
-                    </div>
-                </div>
+        <section class="content">
+            <div class="article-grid">
+                <article class="article-card">
+                    <img src="./asset/image/travel.jpeg" alt="Travel Destination" />
+                    <h3>5 Destinasi Wisata Hidden Gem di Indonesia</h3>
+                    <p>Jelajahi tempat-tempat indah yang belum banyak dikunjungi wisatawan...</p>
+                    <a href="#" class="read-more">Baca Selengkapnya</a>
+                </article>
             </div>
-
-            <div class="article">
-                <img src="./asset/RevoU.png">
-                <div>
-                    <h2>News Tittle</h2>
-                    <h4>Author</h4>
-                    <div>
-                        <a href="#"> Baca Selengkapnya</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="article">
-                <img src="./asset/RevoU.png">
-                <div>
-                    <h2>News Tittle</h2>
-                    <h4>Author</h4>
-                    <div>
-                        <a href="#"> Baca Selengkapnya</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="article">
-                <img src="./asset/RevoU.png">
-                <div>
-                    <h2>News Tittle</h2>
-                    <h4>Author</h4>
-                    <div>
-                        <a href="#"> Baca Selengkapnya</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="article">
-                <img src="./asset/RevoU.png">
-                <div>
-                    <h2>News Tittle</h2>
-                    <h4>Author</h4>
-                    <div>
-                        <a href="#"> Baca Selengkapnya</a>
-                    </div>
-                </div>
-            </div>
-
         </section>
     </main>
+
     <script>
-        function goBack() {
-            window.history.back();
-        }
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        navToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
+
+        const navLinks = document.querySelectorAll('.nav-link a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('active');
+            });
+        });
+
+        document.addEventListener('click', function(event) {
+            const isClickInsideNav = navToggle.contains(event.target) || navMenu.contains(event.target);
+            if (!isClickInsideNav) {
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('active');
+            }
+        });
     </script>
 </body>
 </html>

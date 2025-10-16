@@ -1,79 +1,399 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tentang Kami</title>
-    <link rel="stylesheet" href="./css/about_us.css" />
-    <!-- <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap" rel="stylesheet"> -->
+    <meta name="description" content="Halaman Tentang Kami - Tim profesional yang berpengalaman">
+    <title>Tentang Kami - Urban Vibes Daily</title>
+    <link rel="stylesheet" href="./css/global-styles.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;700&display=swap">
-    
+    <style>
+        /* Styling khusus untuk halaman about us */
+        .team-section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 2px;
+        }
+
+        .section-description {
+            font-size: 1.2rem;
+            color: var(--text-color);
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .team-member {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px var(--shadow);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .team-member::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px var(--hover-shadow);
+        }
+
+        .team-member:hover::before {
+            transform: scaleX(1);
+        }
+
+        .member-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1.5rem;
+            border: 4px solid var(--border-color);
+            transition: all 0.3s ease;
+            display: block;
+        }
+
+        .team-member:hover .member-avatar {
+            transform: scale(1.1);
+            border-color: var(--gradient-start);
+        }
+
+        .member-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .member-role {
+            font-size: 1rem;
+            color: var(--gradient-start);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .member-description {
+            font-size: 0.9rem;
+            color: var(--text-color);
+            opacity: 0.7;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .social-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+            filter: brightness(1.1);
+        }
+
+        .social-icon {
+            width: 18px;
+            height: 18px;
+            filter: brightness(0) invert(1);
+        }
+
+        .company-info {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            margin: 4rem auto;
+            max-width: 800px;
+            text-align: center;
+            box-shadow: 0 10px 30px var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        .company-info h3 {
+            font-size: 2rem;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+        }
+
+        .company-info p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--text-color);
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .team-section {
+                padding: 2rem 1rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                margin-top: 2rem;
+            }
+
+            .team-member {
+                padding: 2rem 1.5rem;
+            }
+
+            .company-info {
+                margin: 2rem auto;
+                padding: 2rem 1.5rem;
+            }
+
+            .company-info h3 {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Animasi */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .team-member:nth-child(1) { animation-delay: 0.1s; }
+        .team-member:nth-child(2) { animation-delay: 0.2s; }
+        .team-member:nth-child(3) { animation-delay: 0.3s; }
+        .team-member:nth-child(4) { animation-delay: 0.4s; }
+        .team-member:nth-child(5) { animation-delay: 0.5s; }
+        .team-member:nth-child(6) { animation-delay: 0.6s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
 </head>
 
 <body>
+    <button class="theme-toggle" id="themeToggle" aria-label="Beralih ke mode gelap" data-tooltip="Mode Gelap">
+        🌙
+    </button>
+
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+    </div>
+
     <header>
         <nav>
           <div class="logo">
-            <img src="./asset/logo1.png" width="170%" alt="" />
+            <img src="./asset/logo1.png" alt="Urban Vibes Daily Logo" />
           </div>
-          <ul class="nav-link">
+          <div class="nav-toggle" id="navToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <ul class="nav-link" id="navMenu">
             <li>
-              <a href="#home">Beranda</a>
+              <a href="./index.html">Beranda</a>
             </li>
             <li class="dropdown">
                 <a href="#topik">Topik</a>
                 <div class="dropdown-content">
-                    <a href="#">Gaya Hidup Sehat</a>
-                    <a href="#">Kecantikan</a>
-                    <a href="#">Fashion</a>
-                    <a href="#">Travel</a>
-                    <a href="#">Kuliner</a>
-                    <a href="#">Budaya</a>
+                    <a href="./gayahidupsehat.html">Gaya Hidup Sehat</a>
+                    <a href="./kecantikan.html">Kecantikan</a>
+                    <a href="./fashion.html">Fashion</a>
+                    <a href="./travel.html">Travel</a>
+                    <a href="./kuliner.html">Kuliner</a>
+                    <a href="./budaya.html">Budaya</a>
                 </div>
             </li>
             <li>
-              <a href="./about_us.html">Tentang Kami</a>
+              <a href="#" class="active">Tentang Kami</a>
             </li>
           </ul>
         </nav>
     </header>
 
-    <div id="our-team" class="our-team">
-        <p class="title">Our Team</p>
-        <div class="our-team-card">
-            <div class="card">
-                <img class="img-team" src="./asset/RevoU.png" alt="" />
-                <p>Nama</p>
-                <a href=""><img class="logo" src="./asset/image/in.png" alt="" /></a>
+    <main>
+        <section class="page-header">
+            <h1>Tentang Kami</h1>
+            <p>Kenali tim profesional di balik Urban Vibes Daily</p>
+        </section>
+
+        <section class="team-section">
+            <div class="section-title">
+                <h2>Tim Kami</h2>
+                <p class="section-description">
+                    Kami adalah tim yang berdedikasi untuk menyajikan konten berkualitas tinggi 
+                    tentang gaya hidup modern, trend terkini, dan inspirasi untuk kehidupan yang lebih baik.
+                </p>
             </div>
-            <div class="card">
-                <img class="img-team" src="./asset/RevoU.png" alt="" />
-                <p>Nama</p>
-                <a href=""><img class="logo" src="./asset/image/in.png" alt="" /></a>
+
+            <div class="team-grid">
+                <div class="team-member fade-in-up">
+                    <img class="member-avatar" src="./asset/RevoU.png" alt="Anisa Eka" />
+                    <h4 class="member-name">Anisa Eka</h4>
+                    <p class="member-role">Frontend Developer</p>
+                    <p class="member-description">
+                        Spesialis dalam pengembangan antarmuka pengguna yang interaktif dan responsif. 
+                        Berpengalaman dalam React, JavaScript, dan modern web technologies.
+                    </p>
+                    <a href="https://linkedin.com/in/owenkalumata" class="social-link" target="_blank">
+                        <img src="./asset/image/in.png" alt="LinkedIn" class="social-icon">
+                        LinkedIn
+                    </a>
+                </div>
+
+                <div class="team-member fade-in-up">
+                    <img class="member-avatar" src="./asset/RevoU.png" alt="Azfa Restu Putra" />
+                    <h4 class="member-name">Azfa Restu Putra</h4>
+                    <p class="member-role">UI/UX Designer</p>
+                    <p class="member-description">
+                        Desainer berpengalaman yang fokus pada user experience dan visual design. 
+                        Ahli dalam Figma, Adobe Creative Suite, dan design thinking methodology.
+                    </p>
+                    <a href="https://linkedin.com/in/azfarestu" class="social-link" target="_blank">
+                        <img src="./asset/image/in.png" alt="LinkedIn" class="social-icon">
+                        LinkedIn
+                    </a>
+                </div>
+
+                <div class="team-member fade-in-up">
+                    <img class="member-avatar" src="./asset/RevoU.png" alt="Munawarotul K" />
+                    <h4 class="member-name">Munawarotul K</h4>
+                    <p class="member-role">Content Writer</p>
+                    <p class="member-description">
+                        Penulis kreatif yang mengkhususkan diri dalam konten lifestyle dan fashion. 
+                        Berpengalaman dalam SEO writing dan content strategy.
+                    </p>
+                    <a href="https://linkedin.com/in/munawarotul" class="social-link" target="_blank">
+                        <img src="./asset/image/in.png" alt="LinkedIn" class="social-icon">
+                        LinkedIn
+                    </a>
+                </div>
+
+                <div class="team-member fade-in-up">
+                    <img class="member-avatar" src="./asset/RevoU.png" alt="Amanda Putri" />
+                    <h4 class="member-name">Amanda Putri</h4>
+                    <p class="member-role">Marketing Specialist</p>
+                    <p class="member-description">
+                        Marketing strategist yang ahli dalam digital marketing dan social media management. 
+                        Berpengalaman dalam campaign planning dan brand development.
+                    </p>
+                    <a href="https://linkedin.com/in/amandaputri" class="social-link" target="_blank">
+                        <img src="./asset/image/in.png" alt="LinkedIn" class="social-icon">
+                        LinkedIn
+                    </a>
+                </div>
+
+                <div class="team-member fade-in-up">
+                    <img class="member-avatar" src="./asset/RevoU.png" alt="Annisa Eka" />
+                    <h4 class="member-name">Owen Kalumata</h4>
+                    <p class="member-role">Project Manager</p>
+                    <p class="member-description">
+                        Project manager berpengalaman yang memastikan semua proyek berjalan sesuai timeline. 
+                        Ahli dalam Agile methodology dan team coordination.
+                    </p>
+                    <a href="https://linkedin.com/in/owenkalumata" class="social-link" target="_blank">
+                        <img src="./asset/image/in.png" alt="LinkedIn" class="social-icon">
+                        LinkedIn
+                    </a>
+                </div>
+
+                <div class="team-member fade-in-up">
+                    <img class="member-avatar" src="./asset/RevoU.png" alt="Nur Hikmah" />
+                    <h4 class="member-name">Nur Hikmah</h4>
+                    <p class="member-role">Quality Assurance</p>
+                    <p class="member-description">
+                        QA specialist yang memastikan kualitas produk dan konten tetap terjaga. 
+                        Berpengalaman dalam testing methodology dan quality control processes.
+                    </p>
+                    <a href="https://linkedin.com/in/nurhikmah" class="social-link" target="_blank">
+                        <img src="./asset/image/in.png" alt="LinkedIn" class="social-icon">
+                        LinkedIn
+                    </a>
+                </div>
             </div>
-            <div class="card">
-                <img class="img-team" src="./asset/RevoU.png" alt="" />
-                <p>Nama</p>
-                <a href=""><img class="logo" src="./asset/image/in.png" alt="" /></a>
-            </div>
-            <div class="card">
-                <img class="img-team" src="./asset/RevoU.png" alt="" />
-                <p>Nama</p>
-                <a href=""><img class="logo" src="./asset/image/in.png" alt="" /></a>
-            </div>
-            <div class="card">
-                <img class="img-team" src="./asset/RevoU.png" alt="" />
-                <p>Nama</p>
-                <a href=""><img class="logo" src="./asset/image/in.png" alt="" /></a>
-            </div>
-            <div class="card">
-                <img class="img-team" src="./asset/RevoU.png" alt="" />
-                <p>Nama</p>
-                <a href=""><img class="logo" src="./asset/image/in.png" alt="" /></a>
-            </div>
-        </div>
-    </div>
+        </section>
+
+        <section class="company-info">
+            <h3>Urban Vibes Daily</h3>
+            <p>
+                Kami adalah platform media digital yang berdedikasi untuk menyajikan konten berkualitas 
+                tentang gaya hidup urban, trend fashion, tips kecantikan, destinasi travel, kuliner, 
+                dan kekayaan budaya. Tim kami terdiri dari profesional muda yang berpengalaman dan 
+                berkomitmen untuk memberikan inspirasi serta informasi terpercaya bagi para pembaca.
+            </p>
+            <p>
+                Dengan passion yang tinggi terhadap dunia digital dan lifestyle, kami berusaha 
+                menciptakan konten yang tidak hanya informatif, tetapi juga menginspirasi untuk 
+                menjalani hidup yang lebih baik dan bermakna.
+            </p>
+        </section>
+    </main>
+
+    <footer class="text-center mt-4 mb-4">
+        <p>&copy; 2024 Urban Vibes Daily. All rights reserved.</p>
+    </footer>
+
+    <script src="./js/global-scripts.js"></script>
 </body>
 
 </html>
